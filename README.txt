@@ -1,3 +1,5 @@
+NOTE: Folder structure not yet decided!! This will be published as npm package once library becomes rich enough.
+
 1. This library will provide some set of functions which will help you to write code in a much cleaner way and 
     under the hood it will maintain best practices of writing code.
     For example: let's say you want to write if-else chaining in your code. 
@@ -24,5 +26,3 @@
     declaring local variables and many more. So, eventually your code base will look like function driven / instruction based code base.
     Whoever will look at your code, he/she can understand what you are trying to do by reading the function name itself
     without knowing syntactical sugar-coat.
-
-NOTE: Folder structure not yet decided!!
