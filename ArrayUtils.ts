@@ -1,7 +1,7 @@
 export class ArrayUtils {
   constructor() {}
 
-  public sumOfArray(arr: Array<number>, initialValue = 0): number {
+  public sumOfArray(arr: Array<number>, initialValue = 0) {
     return arr.reduce((prev, curr) => prev + curr, initialValue);
   }
 
