@@ -1,9 +1,7 @@
-import { ArrayUtils } from "./ArrayUtils";
-import { BaseOperation } from "./BaseOperation";
-import { FlowWriter } from "./FlowWriter";
-import { ObjectUtils } from "./ObjectUtils";
-
-// export class DataInfluencer {}
+import { ArrayUtils } from "./utils/ArrayUtils";
+import { BaseOperation } from "./utils/BaseOperation";
+import { FlowWriter } from "./utils/FlowWriter";
+import { ObjectUtils } from "./utils/ObjectUtils";
 
 export const writer = {
   FlowWrtier: FlowWriter,
@@ -11,3 +9,5 @@ export const writer = {
   ObjectUtils: ObjectUtils,
   ArrayUtils: ArrayUtils,
 };
+
+// export class DataInfluencer {}
