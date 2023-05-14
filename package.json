@@ -1,7 +1,7 @@
 {
-  "name": "@lib/writer",
+  "name": "@lib/code-cleaner",
   "version": "1.0.0",
-  "description": "Writing instruction based Javascript code",
+  "description": "Writing instruction based Typescript code",
   "main": "app.ts",
   "scripts": {
     "init": "npx ts-node app",
