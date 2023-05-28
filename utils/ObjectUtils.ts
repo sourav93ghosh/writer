@@ -30,7 +30,7 @@ export class ObjectUtils {
     let final = JSON.parse(JSON.stringify(obj));
     for (const key of keys) {
       if (final.hasOwnProperty(key)) {
-        final = obj[key];
+        final = final[key];
       }
     }
     return final;
@@ -55,5 +55,12 @@ export class ObjectUtils {
       }
     }
     return true;
+  }
+
+  public getValue(obj: any, key: string): any {
+    if (obj.hasOwnProperty(key)) {
+      return obj[key];
+    }
+    return null;
   }
 }

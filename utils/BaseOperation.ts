@@ -97,11 +97,18 @@ export class BaseOperation {
     return nums.reduce((prev, curr) => prev + curr, 0);
   }
 
-  public createObject(key: string, value: any): any {
+  public createObject(): any {
     if (this.constructor === BaseOperation) {
-      return { [key]: value };
+      return new Object();
     }
+  }
+
+  public setProps(key: string, value: any): any {
     return { ...this, [key]: value };
+  }
+
+  public useBean(beanClass: any): any {
+    return new beanClass();
   }
 
   public createLocalVariable(arr: Array<String>): void {
