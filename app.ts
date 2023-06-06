@@ -2,7 +2,9 @@ import { ArrayUtils } from "./utils/ArrayUtils";
 import { BaseOperation } from "./utils/BaseOperation";
 import { FlowWriter } from "./utils/FlowWriter";
 import { ObjectUtils } from "./utils/ObjectUtils";
-import { NotNull } from "./validators/Decorators";
+// import { NotNull } from "./validators/NotNull";
+// import { Required } from "./validators/Required";
+// import { Validate } from "./validators/Validate";
 
 export const writer = {
   FlowWrtier: FlowWriter,
@@ -11,21 +13,18 @@ export const writer = {
   ArrayUtils: ArrayUtils,
 };
 
-// export class DataInfluencer {}
-class A {
-  @NotNull()
-  public age = 20;
+// @Validate()
+// class A {
+//   @NotNull()
+//   @Required()
+//   age: number;
 
-  error: any;
-}
+//   @Required()
+//   name: string;
+// }
 
-// var bo = new BaseOperation();
-var b = new A();
-// console.log(
-//   b.hasOwnProperty("a"),\
-//   b.hasOwnProperty("c"),
-//   typeof A,
-//   Object.getOwnPropertyNames(b)
-// );
-// b.a = null;
-console.log(b);
+// // var bo = new BaseOperation();
+// var b = new A();
+// b.age = 100;
+// let showsTopper = b["validate"]();
+// console.log(showsTopper, b["error"]);

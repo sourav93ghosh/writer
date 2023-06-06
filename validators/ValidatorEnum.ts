@@ -1,0 +1,15 @@
+export enum Validator {
+  REQUIRED = "required",
+  NOTNULL = "notNull",
+  RANGE = "range",
+  STRICTRANGE = "strictRange",
+  MAX = "maxValue",
+  MIN = "minValue",
+  MAXLENGTH = "maxLength",
+  MINLENGTH = "minLength",
+  LESSTHAN = "lessThan",
+  LESSTHANOREQUAL = "lessThanOrEqual",
+  GREATERTHAN = "greaterThan",
+  GREATERTHANOREQUAL = "greaterThanOrEqual",
+  EQUAL = "equal",
+}

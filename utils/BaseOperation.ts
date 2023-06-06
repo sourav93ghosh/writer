@@ -27,6 +27,10 @@ export class BaseOperation {
     return !operand;
   }
 
+  public isTrue(operand: any) {
+    return !!operand;
+  }
+
   public isEqual(operand: any, value: any): boolean {
     return operand === value;
   }

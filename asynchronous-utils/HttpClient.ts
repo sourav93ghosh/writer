@@ -1,51 +1,30 @@
-enum HttpMethod {
-  GET = "get",
-  POST = "post",
-  PUT = "put",
-  DELETE = "delete",
-}
+import { Request } from "./Request";
+import { HttpMethod } from "./HttpMethodEnum";
+import { copyFile } from "fs";
 
-class KVPair {
-  key: string;
-  value: string;
-}
-
-class Config {
-  public url: string;
-  public headers: any;
-  public httpMethod: HttpMethod;
-  public requestBody: any;
-  public queryString: Array<KVPair>;
-  public pathVariable: Array<string>;
-  public propToBeUsedInNextCall: any;
-  public cb: any;
-}
-
-export class AsynchronusUtils {
+export class HttpClient {
   constructor() {}
 
-  public async getCall(config: Config): Promise<any> {
-    const response = await fetch(config.url);
+  public async get(config: Request[]): Promise<any> {
+    const response = await fetch(config[0].url);
     const data = await response.json();
     return data;
   }
 
-  public async postCall(config: Config): Promise<any> {
-    const response = await fetch(config.url, {
+  public async post(config: Request[]): Promise<any> {
+    const response = await fetch(config[0].url, {
       method: HttpMethod.POST,
-      headers: config.headers ?? {
+      headers: config[0].headers ?? {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(config.requestBody),
+      body: JSON.stringify(config[0].requestBody),
     });
     const data = await response.json();
     return data;
   }
 
-  public async parallelApiCallUsingPromise(
-    config: Array<Config>
-  ): Promise<any> {
+  public async forkJoin(config: Request[]): Promise<any> {
     const promise = [];
     for (const conf of config) {
       switch (conf.httpMethod) {
@@ -70,10 +49,11 @@ export class AsynchronusUtils {
     return response;
   }
 
-  public async sequentialApiCallUsingPromise(config: Array<Config>) {
+  public async switchMap(config: Request[]): Promise<any> {
     let data = null;
     for (const conf of config) {
       let response = null;
+      conf.before();
       switch (conf.httpMethod) {
         case HttpMethod.GET:
           response = await fetch(conf.url);
@@ -91,6 +71,8 @@ export class AsynchronusUtils {
           data = await response.json();
           break;
       }
+      conf.complete(data);
     }
+    return data;
   }
 }

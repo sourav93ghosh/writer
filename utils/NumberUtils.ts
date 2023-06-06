@@ -11,4 +11,8 @@ export class NumberUtils {
       return arr.length === 2 && !!arr[0] && !!arr[1];
     }
   }
+
+  public isNegative(val: any) {
+    return !isNaN(val) && val < 0;
+  }
 }
